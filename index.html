@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Job Portal Registration</title>
+    <style>
+      /* Page styling */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 720px;
+        height: 100%;
+
+        margin: 0 auto;
+        padding: 60px;
+        /* background-color: red; */
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+        border-radius: 5px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s, transform 0.3s;
+
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .container.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s, transform 0.3s;
+      }
+
+      .container.show h2 {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s, transform 0.3s;
+      }
+
+      .container.show .form-group {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid #ccc;
+        font-size: 16px;
+        background-color: transparent;
+        transition: border-color 0.3s;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="password"]:focus {
+        border-bottom-color: #021B79;
+
+        outline: none;
+      }
+
+      .btn {
+        display: block;
+        width: 25%;
+        padding: 10px;
+        background-color: #021B79;
+  color: white;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s, transform 0.3s;
+        margin: 0 auto;
+      }
+
+      .container.show .btn {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .btn:hover {
+        background-color: #021454;
+      }
+
+      .message {
+        text-align: center;
+        margin-top: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s, transform 0.3s;
+      }
+
+      .container.show .message {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .message a {
+       color: #021B79;
+        text-decoration: none;
+      }
+
+      /* Responsive layout */
+      @media screen and (max-width: 480px) {
+        .container {
+          width: 100%;
+          margin-top: 50px;
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          border: 1px solid rgba(0, 0, 0, 0.484);
+          background-color: rgb(255, 255, 255);
+          margin-top: 250px;
+          /* width: 80vw;
+                height: 480px;
+                margin: 0 auto;
+                margin-top: 100px;;
+                padding: 20px; */
+          /* padding: 20px; */
+          width: 80vw;
+          border-radius: 10px;
+        }
+
+        body {
+          /* margin: 10px; */
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+          width: 90%;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .container {
+          border: 1px solid rgba(0, 0, 0, 0.484);
+          background-color: rgb(255, 255, 255);
+          margin-top: 100px;
+          margin-bottom: 150px;
+          /* width: 80vw;
+                height: 480px;
+                margin: 0 auto;
+                margin-top: 100px;;
+                padding: 20px; */
+          /* padding: 20px; */
+          width: 80vw;
+          border-radius: 10px;
+        }
+
+        body {
+          /* margin: 10px; */
+        }
+      }
+
+      /* @media(max-width: 400px) {
+            .container{
+                border: 1px solid rgba(0, 0, 0, 0.532);
+                background-color: pink;
+                width: 80vw;
+                height: 475px;
+                margin: 0 auto;
+                margin-top:100px;
+                padding: 50px;
+            }
+        } */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Registration</h2>
+      <form>
+        <div class="form-group">
+          <label for="fullname">Full Name:</label>
+          <input type="text" id="fullname" name="fullname" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password:</label>
+          <input
+            type="password"
+            id="confirm-password"
+            name="confirm-password"
+            required
+          />
+        </div>
+        <input type="submit" class="btn" value="Register" />
+        <div class="message">
+          Already have an account?
+          <a href="#" onclick="window.location.href='login.html';">Login</a>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        var container = document.querySelector(".container");
+        container.classList.add("show");
+      });
+    </script>
+  </body>
+</html>
